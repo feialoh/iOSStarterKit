@@ -141,13 +141,8 @@
 			isa = PBXGroup;
 			children = (
 				359733202122B9C500D84648 /* AppDelegate.swift */,
-				359733622122E70A00D84648 /* View Controllers */,
-				3597336C212300C500D84648 /* Login Manager */,
-				359733742126C3E100D84648 /* Application Manager */,
-				3597335F2122DD1500D84648 /* Navigation Helper */,
-				359733672122F4C500D84648 /* API Class */,
-				3597336F2123015200D84648 /* Models */,
-				359733582122BCE400D84648 /* Helper Class */,
+				359733792126FBB100D84648 /* UI */,
+				3597337A2126FBC900D84648 /* Components */,
 				359733242122B9C500D84648 /* Main.storyboard */,
 				3597332A2122B9C600D84648 /* Assets.xcassets */,
 				3597332C2122B9C600D84648 /* LaunchScreen.storyboard */,
@@ -235,6 +230,27 @@
 				359733722126C3D300D84648 /* ApplicationManager.swift */,
 			);
 			path = "Application Manager";
+			sourceTree = "<group>";
+		};
+		359733792126FBB100D84648 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				359733622122E70A00D84648 /* View Controllers */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3597337A2126FBC900D84648 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3597336C212300C500D84648 /* Login Manager */,
+				359733742126C3E100D84648 /* Application Manager */,
+				3597335F2122DD1500D84648 /* Navigation Helper */,
+				359733672122F4C500D84648 /* API Class */,
+				3597336F2123015200D84648 /* Models */,
+				359733582122BCE400D84648 /* Helper Class */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		AB47AD84869A8C13BDF12904 /* Frameworks */ = {
