@@ -15,35 +15,49 @@ struct Constants {
 // MARK: APP Details and general keys
 /*===============================================================================*/
 
-let APP_TITLE  = "My Starter App"
-
-let modelName = "myAppPhoneUserData"
-
-let modelBundle = Bundle(identifier: "com.feialoh.iOSStarterKit")!
-
-let authToken           = "authtoken"
-let userName            = "username"
-let userId              = "userid"
-let userRole            = "userrole"
-let userData            = "userdata"
-let deviceId            = "deviceid"
-let deviceToken         = "devicetoken"
-let logemOut            = "logoutall"
-let firstTimeLogin      = "firsttime"
-
-let DEVICE_ID           = UIDevice.current.identifierForVendor!.uuidString
-
-/*===============================================================================*/
-// MARK: API Communication
-/*===============================================================================*/
-
-let BASE_URL = "<Your server url>" 
+    struct AppKeys {
+        
+        static let APP_TITLE  = "My Starter App"
+        
+        static let modelName = "myAppPhoneUserData"
+        
+        static let modelBundle = Bundle(identifier: "com.feialoh.iOSStarterKit")!
+        
+        static let authToken           = "authToken"
+        static let userName            = "userName"
+        static let userId              = "userId"
+        static let userRole            = "userRole"
+        static let userData            = "userData"
+        static let deviceId            = "deviceId"
+        static let deviceToken         = "deviceToken"
+        static let logemOut            = "logoutAll"
+        static let firstTimeLogin      = "firstTime"
+        
+        static let DEVICE_ID           = UIDevice.current.identifierForVendor!.uuidString
+        
+        static let DOWNLOAD_FOLDER     = "imageFolder"
+        
+        /*===============================================================================*/
+        // MARK: API Communication
+        /*===============================================================================*/
+        
+        static let BASE_URL = "<Your Url>"
+        
+        
+        
+        /*===============================================================================*/
+        // MARK: Email Validation
+        /*===============================================================================*/
+        
+        static let EMAIL_VALIDATION_CHARACTERS = "(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
+        
+    }
 
 /*===============================================================================*/
 // MARK: API End Points
 /*===============================================================================*/
 
-struct APIs {
+struct API {
     
     //INITIALIZE_API
     static let initializeApp = "webservices?procedure=initializeApp"
@@ -53,7 +67,10 @@ struct APIs {
     static let logout = "webservices?procedure=logout"
     //IMAGE_UPLOAD_API
     static let imageUpload = "webservices?procedure=uploadPhoto"
-
+    //FORGOT_PASS
+    static let forgotPassword = "webservices?procedure=forgotPassword"
+    //UPDATE_DEVICE_TOKEN
+    static let updateDeviceToken = "webservices?procedure=updateDeviceToken"
 }
 
 
@@ -118,9 +135,9 @@ struct AlertMessage {
 
 struct ImageIcon {
 
-    let homeButtonIcon                = "HomeButton"
-    let settingsButtonIcon            = "SettingsButton"
-    let backButtonIcon                = "BackButton"
+    static let homeButtonIcon                = "HomeButton"
+    static let settingsButtonIcon            = "SettingsButton"
+    static let backButtonIcon                = "BackButton"
     
 }
 
@@ -142,13 +159,16 @@ struct kUserDefaults {
 // MARK: Common Colors
 /*===============================================================================*/
 
-let UINAV_BAR_COLOR                             = UIColor(red: 23.0/255, green: 181.0/255, blue: 212.0/255.0, alpha: 1).cgColor
-let UIVIEW_BORDER_COLOR                         = UIColor(red: 225.0/255, green: 226.0/255, blue: 227.0/255.0, alpha: 1).cgColor
-let UIVIEW_BORDER_WIDTH : CGFloat               = 1.0
-let UIVIEW_CORNER_RADIUS : CGFloat              = 5.0
-let FLOAT_CONSTANT_60                           = 60.0
-let NAVBAR_HEIGHT : CGFloat                     = 44.0
+struct ViewConstants
+{
+    static let UINAV_BAR_COLOR                             = UIColor(red: 23.0/255, green: 181.0/255, blue: 212.0/255.0, alpha: 1).cgColor
+    static let UIVIEW_BORDER_COLOR                         = UIColor(red: 225.0/255, green: 226.0/255, blue: 227.0/255.0, alpha: 1).cgColor
+    static let UIVIEW_BORDER_WIDTH : CGFloat               = 1.0
+    static let UIVIEW_CORNER_RADIUS : CGFloat              = 5.0
+    static let FLOAT_CONSTANT_60                           = 60.0
+    static let NAVBAR_HEIGHT : CGFloat                     = 44.0
 
+}
 
 
 /*===============================================================================*/
@@ -176,11 +196,5 @@ struct DeviceType
     static let IS_IPAD =  UIDevice.current.userInterfaceIdiom == .pad
 }
 
-
-/*===============================================================================*/
-// MARK: Email Validation
-/*===============================================================================*/
-
-let EMAIL_VALIDATION_CHARACTERS = "(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
-
 }
+

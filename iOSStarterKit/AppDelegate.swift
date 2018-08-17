@@ -17,6 +17,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if DefaultWrapper.authtoken() == nil{
+            DefaultWrapper.saveDeviceId(Constants.AppKeys.DEVICE_ID)
+            initializeApp()
+        }
         return true
     }
 
@@ -88,6 +93,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
+    
+    
+    // MARK: - App Initialization
+    
+    func initializeApp(){
+            
+        
+        Utilities.showLoadingWithTitle("Connecting..")
+        
+        ApplicationManager.shared.initializeApp { (response, error) in
+            
+            Utilities.dismissLoading()
+            
+            if let error = error{
+                print("initializeApp error: ", error.localizedDescription)
+//                self.showRetryWithError(error)
+                return
+            }
+            guard let response = response else { return }
+            guard let authToken = response[Constants.AppKeys.authToken] as? String else { return }
+            
+            DefaultWrapper.saveAuthToken(authToken)
+            
+            if let _ = DefaultWrapper.deviceToken(){
+                ApplicationManager.shared.updateDeviceToken()
+            }
+//            DispatchQueue.main.async {
+//                self.showLoginVC()
+//            }
+        }
+    }
+    
 }
 
